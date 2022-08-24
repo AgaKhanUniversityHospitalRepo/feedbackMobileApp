@@ -1,6 +1,7 @@
 import 'package:feedbackmobileapp/color/light_color.dart';
 import 'package:feedbackmobileapp/pages/home.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,11 +23,15 @@ class MyApp extends StatelessWidget {
       //         fontFamily: 'Lato',
       //         backgroundColor: Colors.white
       //         ),
-      theme: ThemeData(primarySwatch: Colors.blueGrey),
+      theme: ThemeData(primarySwatch: Colors.deepOrange),
       darkTheme: ThemeData(
-          brightness: Brightness.dark, primarySwatch: Colors.blueGrey),
+         // brightness: Brightness.dark, primarySwatch: Colors.blueGrey, fontFamily: GoogleFonts.montserrat()
+         primaryColor: Color.fromRGBO(218, 41, 28, 1),
+              brightness: Brightness.light,
+              fontFamily: 'Montserrat'
+          ),
               
-      home: const MyHomePage(title: 'Feedback App'),
+      home: const MyHomePage(title: 'Feedback Application'),
     );
   }
 }
@@ -56,7 +61,8 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text(widget.title, style: TextStyle(color: Colors.white, fontSize: 18)),
+        backgroundColor: Colors.indigo
       ),
       body: HomePage(),
       // floatingActionButton: FloatingActionButton(
