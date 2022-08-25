@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.deepOrange),
       darkTheme: ThemeData(
          // brightness: Brightness.dark, primarySwatch: Colors.blueGrey, fontFamily: GoogleFonts.montserrat()
-         primaryColor: Color.fromRGBO(218, 41, 28, 1),
+         primaryColor: LightColor.darkRed,
               brightness: Brightness.light,
               fontFamily: 'Montserrat'
           ),
@@ -61,8 +61,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title, style: TextStyle(color: Colors.white, fontSize: 18)),
-        backgroundColor: Colors.indigo
+        leading: Icon(Icons.home),
+        title: Text(widget.title, style: GoogleFonts.montserrat(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+        backgroundColor: LightColor.darkRed,
       ),
       body: HomePage(),
       // floatingActionButton: FloatingActionButton(
