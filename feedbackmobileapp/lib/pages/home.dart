@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 TextFormField(
                   decoration: InputDecoration(
-                    labelStyle: GoogleFonts.lato(color: LightColor.black),
+                    labelStyle: GoogleFonts.lato(),
                     labelText: 'Phone Number',
                     //hintText: 'Please enter your phone number',
                   ),
@@ -373,8 +373,15 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.all(8.0),
               color: Colors.white,
               width: 370,
-              height: 100,
+              height: 200,
               child: Column(children: [
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelStyle: GoogleFonts.lato(color: LightColor.black),
+                    labelText: 'Overall Remark',
+                    //hintText: 'Please enter your phone number',
+                  ),
+                ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary: LightColor.darkRed, // background
