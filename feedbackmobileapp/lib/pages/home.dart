@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:feedbackmobileapp/color/light_color.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
   double? _ratingValue1;
   double? _ratingValue2;
   double? _ratingValue3;
@@ -38,6 +40,26 @@ class _HomePageState extends State<HomePage> {
     selectedLocation = 'Adult Casualty';
   }
 
+  var cphone;
+
+  TextEditingController cCodeController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController serviceAreaController = TextEditingController();
+  TextEditingController serviceAreaDataController = TextEditingController();
+  TextEditingController experienceController = TextEditingController();
+  TextEditingController experienceRmController = TextEditingController();
+  TextEditingController staffCourtesyController = TextEditingController();
+  TextEditingController staffCourtesyRmController = TextEditingController();
+  TextEditingController facilitiesController = TextEditingController();
+  TextEditingController facilitiesRmController = TextEditingController();
+  TextEditingController timelinessController = TextEditingController();
+  TextEditingController timelinessRmController = TextEditingController();
+  TextEditingController recommendController = TextEditingController();
+  TextEditingController recommentRmController = TextEditingController();
+  TextEditingController overallController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -48,34 +70,36 @@ class _HomePageState extends State<HomePage> {
           Container(
               margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
               padding: EdgeInsets.all(8.0),
-              // color: Colors.white,
-              // width: 370,
-              // height: 50,
               child: Text('Please Rate your experience',
                   style: GoogleFonts.montserrat(
                       color: LightColor.black, fontSize: 20))),
           Container(
-            margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
-            padding: EdgeInsets.all(8.0),
+            margin: const EdgeInsets.all(10),
+            padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
             color: Colors.white,
             width: 370,
             height: 350,
             child: Column(
               children: [
-                TextFormField(
-                  decoration: InputDecoration(
-                    labelStyle: GoogleFonts.lato(),
-                    labelText: 'Phone Number',
-                    //hintText: 'Please enter your phone number',
-                  ),
+                IntlPhoneField(
+                   decoration: InputDecoration(
+        labelText: 'Phone Number',
+    ),
+    initialCountryCode: 'KE',
+    onChanged: (cphone) {
+        print(cphone.countryCode + 'here' + cphone.number);
+    },controller: phoneController,
                 ),
+
                 TextFormField(
+                  controller: nameController,
                   decoration: InputDecoration(
                     labelText: 'Name',
                     hintText: 'Please enter your name',
                   ),
                 ),
                 TextFormField(
+                  controller: emailController,
                   decoration: InputDecoration(
                     labelText: 'Email',
                     hintText: 'Please enter your email address',
@@ -102,7 +126,8 @@ class _HomePageState extends State<HomePage> {
                       selectedLocation = newval.toString();
                       _showTextDield = true;
                       _otherLocation = newval.toString();
-                    });
+                    }
+                    );
                   },
                   
                 ),
@@ -113,6 +138,7 @@ class _HomePageState extends State<HomePage> {
                 Visibility(
                   visible: _showTextDield,
                   child: TextFormField(
+                    controller: serviceAreaDataController,
                     decoration:
                         InputDecoration(labelText: "Enter ${_otherLocation}"),
                         
@@ -124,11 +150,11 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.all(8.0),
+            margin: const EdgeInsets.all(10),
+            padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
             color: Colors.white,
             width: 370,
-            height: 180,
+            height: 200,
             child: Column(
               children: [
                 Text(
@@ -164,6 +190,7 @@ class _HomePageState extends State<HomePage> {
                   style: const TextStyle(color: Colors.blueGrey, fontSize: 16),
                 ),
                 TextFormField(
+                  controller: experienceRmController,
                   decoration: InputDecoration(
                     labelText: 'Remark',
                     hintText: 'Please enter your remarks',
@@ -173,11 +200,11 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.all(8.0),
+            margin: const EdgeInsets.all(10),
+            padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
             color: Colors.white,
             width: 370,
-            height: 180,
+            height: 200,
             child: Column(
               children: [
                 Text(
@@ -213,6 +240,7 @@ class _HomePageState extends State<HomePage> {
                   style: const TextStyle(color: Colors.blueGrey, fontSize: 16),
                 ),
                 TextFormField(
+                  controller: staffCourtesyRmController,
                   decoration: InputDecoration(
                     labelText: 'Remark',
                     hintText: 'Please enter your remarks',
@@ -222,11 +250,11 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.all(8.0),
+            margin: const EdgeInsets.all(10),
+            padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
             color: Colors.white,
             width: 370,
-            height: 180,
+            height: 200,
             child: Column(
               children: [
                 Text(
@@ -262,6 +290,7 @@ class _HomePageState extends State<HomePage> {
                   style: const TextStyle(color: Colors.blueGrey, fontSize: 16),
                 ),
                 TextFormField(
+                  controller: facilitiesRmController,
                   decoration: InputDecoration(
                     labelText: 'Remark',
                     hintText: 'Please enter your remarks',
@@ -271,11 +300,11 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.all(8.0),
+            margin: const EdgeInsets.all(10),
+            padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
             color: Colors.white,
             width: 370,
-            height: 180,
+            height: 200,
             child: Column(
               children: [
                 Text(
@@ -311,6 +340,7 @@ class _HomePageState extends State<HomePage> {
                   style: const TextStyle(color: Colors.blueGrey, fontSize: 16),
                 ),
                 TextFormField(
+                  controller: timelinessRmController,
                   decoration: InputDecoration(
                     labelText: 'Remark',
                     hintText: 'Please enter your remarks',
@@ -320,11 +350,11 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.all(8.0),
+            margin: const EdgeInsets.all(10),
+            padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
             color: Colors.white,
             width: 370,
-            height: 180,
+            height: 200,
             child: Column(
               children: [
                 Text(
@@ -350,6 +380,7 @@ class _HomePageState extends State<HomePage> {
                     onRatingUpdate: (value) {
                       setState(() {
                         _ratingValue5 = value;
+                        
                       });
                       SizedBox(height: 25);
                       // Display the rate in number
@@ -360,6 +391,7 @@ class _HomePageState extends State<HomePage> {
                   style: const TextStyle(color: Colors.blueGrey, fontSize: 16),
                 ),
                 TextFormField(
+                  controller: recommentRmController,
                   decoration: InputDecoration(
                     labelText: 'Remark',
                     hintText: 'Please enter your remarks',
@@ -369,28 +401,57 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Container(
-              margin: EdgeInsets.all(10),
-              padding: EdgeInsets.all(8.0),
-              color: Colors.white,
-              width: 370,
-              height: 200,
+              margin: const EdgeInsets.all(10),
+            padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+            color: Colors.white,
+            width: 370,
+            height: 100,
               child: Column(children: [
                 TextFormField(
+                  controller: overallController,
                   decoration: InputDecoration(
-                    labelStyle: GoogleFonts.lato(color: LightColor.black),
+                    labelStyle: GoogleFonts.lato(),
                     labelText: 'Overall Remark',
-                    //hintText: 'Please enter your phone number',
                   ),
                 ),
+                
+              ]),
+              ),
+              SizedBox(height: 20,),
+
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary: LightColor.darkRed, // background
                     onPrimary: Colors.white, // foreground
+                    fixedSize: const Size(320, 50),
+                    shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15))
                   ),
-                  onPressed: () {},
-                  child: Text('Submit'),
-                )
-              ]))
+                  onPressed: () {
+                    String uName = nameController.text;
+                    String email = emailController.text;
+                    String cCode = cCodeController.text;
+                    String phone = phoneController.text;
+                    String serviceArea = selectedLocation;
+                    String serviceAreaData = serviceAreaDataController.text;
+                    String experience = _ratingValue1.toString();
+                    String experienceRm = experienceRmController.text;
+                    String staffCourtesy = _ratingValue2.toString();
+                    String staffCourtesyRm = staffCourtesyRmController.text;
+                    String facilities = _ratingValue3.toString();
+                    String facilitiesRm = facilitiesRmController.text;
+                    String timeliness = _ratingValue4.toString();
+                    String timelinessRm = timelinessRmController.text;
+                    String recommend = _ratingValue5.toString();
+                    String recommendRm = recommentRmController.text;
+                    String overall = overallController.text;
+
+                    print('feed ${uName} ${email} ${cCode} ${phone} ${serviceArea} ${serviceAreaData} ${experience} ${experienceRm} ${staffCourtesy} ${staffCourtesyRm} ${facilities} ${facilitiesRm} ${timelinessRm} ${timeliness} ${recommend} ${recommendRm} ${overall}');
+                  },
+                  child: Text('SUBMIT', style: GoogleFonts.lato(fontWeight: FontWeight.bold),)
+                ),
+
+                SizedBox(height: 20,),
         ],
       ),
     ));
