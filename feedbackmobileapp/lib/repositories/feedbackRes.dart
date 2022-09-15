@@ -23,6 +23,7 @@ Future<PostResponse?> postFeedback(
      String timelinessRm,
      String timelinessRt,
      String uName,
+     String source,
      ) async{
   final response = await http.post(Uri.parse("https://nbi-intranet.ea.aku.edu/feedbackapi/api/v1/feedback"),
    headers: {
@@ -36,6 +37,7 @@ Future<PostResponse?> postFeedback(
      'courtRt': courtRt,
      'email': email,
      'expRm': expRm,
+     'expRt': expRt,
      'facilitiesRm': facilitiesRm,
      'facilitiesRt': facilitiesRt,
      'ovRm': ovRm,
@@ -45,7 +47,28 @@ Future<PostResponse?> postFeedback(
      'timelinessRm': timelinessRm,
      'timelinessRt': timelinessRt,
      'uName': uName,
+     'source':source,
+  }));
+
+  print("Bbbbody" + jsonEncode( {
+     'areaOfService' : areaOfService,
+     'areaOfServiceOther' : areaOfServiceOther,
+     'cCode': cCode,
+     'courtRm': courtRm,
+     'courtRt': courtRt,
+     'email': email,
+     'expRm': expRm,
      'expRt': expRt,
+     'facilitiesRm': facilitiesRm,
+     'facilitiesRt': facilitiesRt,
+     'ovRm': ovRm,
+     'phone': phone,
+     'recommendRm': recommendRm,
+     'recommendRt': recommendRt,
+     'timelinessRm': timelinessRm,
+     'timelinessRt': timelinessRt,
+     'uName': uName,
+     'source':source,
   }));
 
   if(response.statusCode == 200){
@@ -77,6 +100,7 @@ Future<FeedbackReq> postData(FeedbackReq feedbackReq) async {
      'courtRt': feedbackReq.courtRt,
      'email': feedbackReq.email,
      'expRm': feedbackReq.expRm,
+     'expRt': feedbackReq.expRt,
      'facilitiesRm': feedbackReq.facilitiesRm,
      'facilitiesRt': feedbackReq.facilitiesRt,
      'ovRm': feedbackReq.ovRm,
@@ -86,7 +110,7 @@ Future<FeedbackReq> postData(FeedbackReq feedbackReq) async {
      'timelinessRm': feedbackReq.timelinessRm,
      'timelinessRt': feedbackReq.timelinessRt,
      'uName': feedbackReq.uName,
-     'expRt': feedbackReq.expRt,
+     'source': feedbackReq.source,
         }),
 
   );

@@ -16,6 +16,7 @@ class FeedbackReq{
      String timelinessRm;
      String timelinessRt;
      String uName;
+     String source;
 
       FeedbackReq ({
        required this.areaOfService,
@@ -35,6 +36,7 @@ class FeedbackReq{
         required this.timelinessRm,
         required this.timelinessRt,
         required this.uName,
+        required this.source
      });
 
        factory FeedbackReq.fromJson(Map<String, dynamic> json) {
@@ -56,6 +58,7 @@ class FeedbackReq{
       timelinessRm: json['timelinessRm'],
       timelinessRt: json['timelinessRt'],
       uName: json['uName'],
+      source: json['source'],
     );
   }
 }

@@ -5,14 +5,17 @@ import 'dart:convert';
 
 class PostResponse {
     PostResponse({
+      required this.status,
         required this.message,
         required this.body,
     });
 
+  String status;
     String message;
     String body;
 
     factory PostResponse.fromJson(Map<String, dynamic> json) => PostResponse(
+        status: json["status"],
         message: json["message"],
         body: json["body"],
     );
