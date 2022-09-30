@@ -412,7 +412,7 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
               color: Colors.white,
               width: 370,
-              height: 200,
+              height: 220,
               child: Column(
                 children: [
                   const Text.rich(
