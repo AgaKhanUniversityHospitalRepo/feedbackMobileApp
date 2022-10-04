@@ -68,8 +68,14 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+#flutter:
+  assets:
+    - assets/
+    - assets/thankyou.jpg
+  
+  
+  #assets:
+  #   - images/thankyou.jpeg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -86,16 +92,16 @@ flutter:
   fonts:
     - family: Montserrat
       fonts:
-        - asset: lib/assets/fonts/Montserrat/Montserrat-Light.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-Light.ttf
     #       - asset: fonts/Schyler-Italic.ttf
     #         style: italic
     - family: Open_Sans
       fonts:
-        - asset: lib/assets/fonts/Open_Sans/OpenSans-Light.ttf
+        - asset: assets/fonts/Open_Sans/OpenSans-Light.ttf
     
     - family: Lato
       fonts:
-        - asset: lib/assets/fonts/Lato/Lato-Regular.ttf
+        - asset: assets/fonts/Lato/Lato-Regular.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:
